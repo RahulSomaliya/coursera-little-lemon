@@ -1,0 +1,114 @@
+.menu-page {
+  min-height: 80vh;
+}
+
+.menu-hero {
+  background-color: #495e57;
+  color: white;
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.menu-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #f4ce14;
+}
+
+.menu-hero p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.menu-filters {
+  background-color: #f7f7f7;
+  padding: 2rem;
+}
+
+.filter-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.category-filters,
+.dietary-filters {
+  margin-bottom: 2rem;
+}
+
+.category-filters h2,
+.dietary-filters h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #495e57;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.filter-button {
+  padding: 0.5rem 1.5rem;
+  background-color: #fff;
+  border: 2px solid #ddd;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.filter-button:hover {
+  border-color: #495e57;
+}
+
+.filter-button.active {
+  background-color: #495e57;
+  color: white;
+  border-color: #495e57;
+}
+
+.filter-button:focus {
+  outline: 3px solid #f4ce14;
+  outline-offset: 2px;
+}
+
+.menu-items {
+  padding: 3rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.no-items {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666;
+  padding: 3rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .menu-hero h1 {
+    font-size: 2rem;
+  }
+
+  .menu-hero p {
+    font-size: 1rem;
+  }
+
+  .filter-buttons {
+    justify-content: center;
+  }
+
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+}
