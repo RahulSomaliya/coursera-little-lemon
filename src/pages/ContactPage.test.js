@@ -31,7 +31,7 @@ describe("ContactPage", () => {
     fireEvent.click(formTab);
 
     expect(screen.getByText("Send Us a Message")).toBeInTheDocument();
-    expect(screen.getByLabelText(/name/i)).toBeInTheDocument();
+    expect(screen.getByLabelText("Name *")).toBeInTheDocument();
   });
 
   test("displays contact information correctly", () => {

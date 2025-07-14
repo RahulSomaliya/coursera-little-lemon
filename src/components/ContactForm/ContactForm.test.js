@@ -8,11 +8,11 @@ describe("ContactForm", () => {
     render(<ContactForm />);
 
     expect(screen.getByText("Send Us a Message")).toBeInTheDocument();
-    expect(screen.getByLabelText(/name/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/email/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/phone/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/subject/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/message/i)).toBeInTheDocument();
+    expect(screen.getByLabelText("Name *")).toBeInTheDocument();
+    expect(screen.getByLabelText("Email *")).toBeInTheDocument();
+    expect(screen.getByLabelText("Phone (Optional)")).toBeInTheDocument();
+    expect(screen.getByLabelText("Subject *")).toBeInTheDocument();
+    expect(screen.getByLabelText("Message *")).toBeInTheDocument();
   });
 
   test("displays validation errors for empty required fields", async () => {
@@ -31,7 +31,7 @@ describe("ContactForm", () => {
   test("validates email format", async () => {
     render(<ContactForm />);
 
-    const emailInput = screen.getByLabelText(/email/i);
+    const emailInput = screen.getByLabelText("Email *");
     await userEvent.type(emailInput, "invalid-email");
 
     const submitButton = screen.getByRole("button", { name: /send message/i });
@@ -45,7 +45,7 @@ describe("ContactForm", () => {
   test("validates message length", async () => {
     render(<ContactForm />);
 
-    const messageInput = screen.getByLabelText(/message/i);
+    const messageInput = screen.getByLabelText("Message *");
     await userEvent.type(messageInput, "Short");
 
     const submitButton = screen.getByRole("button", { name: /send message/i });
@@ -61,7 +61,7 @@ describe("ContactForm", () => {
   test("displays character count for message", async () => {
     render(<ContactForm />);
 
-    const messageInput = screen.getByLabelText(/message/i);
+    const messageInput = screen.getByLabelText("Message *");
     await userEvent.type(messageInput, "Hello there!");
 
     expect(screen.getByText("12 / 500 characters")).toBeInTheDocument();
@@ -71,15 +71,15 @@ describe("ContactForm", () => {
     render(<ContactForm />);
 
     // Fill in the form
-    await userEvent.type(screen.getByLabelText(/name/i), "John Doe");
-    await userEvent.type(screen.getByLabelText(/email/i), "john@example.com");
-    await userEvent.type(screen.getByLabelText(/phone/i), "1234567890");
+    await userEvent.type(screen.getByLabelText("Name *"), "John Doe");
+    await userEvent.type(screen.getByLabelText("Email *"), "john@example.com");
+    await userEvent.type(screen.getByLabelText("Phone (Optional)"), "1234567890");
     await userEvent.selectOptions(
-      screen.getByLabelText(/subject/i),
+      screen.getByLabelText("Subject *"),
       "feedback"
     );
     await userEvent.type(
-      screen.getByLabelText(/message/i),
+      screen.getByLabelText("Message *"),
       "This is a test message for the contact form."
     );
 
@@ -100,8 +100,8 @@ describe("ContactForm", () => {
     );
 
     // Check that form is reset
-    expect(screen.getByLabelText(/name/i)).toHaveValue("");
-    expect(screen.getByLabelText(/email/i)).toHaveValue("");
-    expect(screen.getByLabelText(/message/i)).toHaveValue("");
+    expect(screen.getByLabelText("Name *")).toHaveValue("");
+    expect(screen.getByLabelText("Email *")).toHaveValue("");
+    expect(screen.getByLabelText("Message *")).toHaveValue("");
   });
 });

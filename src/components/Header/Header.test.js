@@ -14,9 +14,8 @@ describe("Header", () => {
     expect(screen.getByRole("navigation")).toBeInTheDocument();
     expect(screen.getByLabelText("Go to Home page")).toBeInTheDocument();
     expect(screen.getByLabelText("Book a table")).toBeInTheDocument();
-    expect(screen.getByLabelText("View menu")).toBeInTheDocument();
-    expect(screen.getByLabelText("About us")).toBeInTheDocument();
-    expect(screen.getByLabelText("Contact information")).toBeInTheDocument();
+    expect(screen.getByLabelText("View our menu")).toBeInTheDocument();
+    expect(screen.getByLabelText("Contact us")).toBeInTheDocument();
   });
 
   test("has proper ARIA labels", () => {
